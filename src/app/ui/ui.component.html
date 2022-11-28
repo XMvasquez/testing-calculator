@@ -1,6 +1,6 @@
 <div class="calculator">
 
-    <form>
+    <form style="margin-bottom: 3rem;">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa-solid fa-pencil"></i></span>
             <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator1" name="operator1" placeholder="0.0">
@@ -22,6 +22,11 @@
 
         <div class="button multiplication-button" (click)="multiplication()">
             <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+    <div class="group-buttons">
+        <div class="button division-button" (click)="division()">
+            <i class="fa-solid fa-divide"></i>
         </div>
     </div>
 </div>
