@@ -1,23 +1,43 @@
 <div class="calculator">
 
-    <form>
+    <form style="margin-bottom: 3rem;">
         <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span> 
+            <span class="input-group-addon"><i class="fa-solid fa-pencil"></i></span>
             <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator1" name="operator1" placeholder="0.0">
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <span class="input-group-addon"><i class="fa-solid fa-pencil"></i></span>
             <input id="operator2" [(ngModel)]="operator2" type="number" class="form-control operator2" name="operator2" placeholder="0.0">
         </div>
     </form>
+    <div class="group-buttons">
+        <div class="button addition-button" (click)="addition()">
+            <i class="fa-solid fa-plus"></i>
+        </div>
 
-    <i class="glyphicon glyphicon-plus addition-button"
-        (click)="addition()"></i>
+        <div class="button substraction-button" (click)="substraction()">
+            <i class="fa-solid fa-minus"></i>
+        </div>
 
-    <i class="glyphicon glyphicon-minus substraction-button"
-        (click)="substraction()"></i>
+        <div class="button multiplication-button" (click)="multiplication()">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
 
+    <div class="group-buttons">
+        <div class="button division-button" (click)="division()">
+            <i class="fa-solid fa-divide"></i>
+        </div>
+
+        <div class="button sqrt-button" (click)="sqrt()">
+            <i class="fa-solid fa-square-root-variable"></i>
+        </div>
+
+        <div class="button exp-button" (click)="exp()">
+            <i class="fa-solid fa-superscript"></i>
+        </div>
+    </div>
 </div>
 
 <span class="result">{{ result }}</span>
