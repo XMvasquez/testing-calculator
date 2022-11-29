@@ -429,4 +429,85 @@ describe("UI- Component Test Suite", () => {
       expect(el.innerText).toContain("9");
     });
   });
+
+  // *** E X P O N E N T ***
+
+  describe("EXPONENT - Component", () => {
+    it("Should call exponent method", () => {
+      // Arrange
+      let result = 0;
+      component.operator1 = 4;
+      component.operator2 = 2;
+
+      // Act
+      component.exp();
+      result = component.result;
+
+      // Assert
+      expect(result).toBe(16);
+    });
+
+    it("Should set operator1 model through ngModel", async () => {
+      // Arrange
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="operator1"]')
+      ).nativeElement;
+
+      // Act
+      inputElement.value = "127";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+
+      // Assert
+      expect(component.operator1).toEqual(127);
+    });
+
+    it("Should set operator2 model through ngModel", async () => {
+      // Arrange
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="operator2"]')
+      ).nativeElement;
+
+      // Act
+      inputElement.value = "32";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+
+      // Assert
+      expect(component.operator2).toEqual(32);
+    });
+
+    it("should add operator1 and operator2 when i click the exponent button ", () => {
+      // Arrange
+      component.operator1 = 5;
+      component.operator2 = 3;
+      let sqrtButton = fixture.debugElement.query(By.css(".exp-button"));
+
+      // Act
+      sqrtButton.triggerEventHandler("click", null);
+
+      // Assert
+      expect(component.result).toBe(125);
+    });
+
+    it("Should render exponent in result div", () => {
+      // Arrange
+      component.operator1 = 3;
+      component.operator2 = 4;
+
+      // Act
+      component.exp();
+      fixture.detectChanges();
+
+      let de = fixture.debugElement.query(By.css(".result"));
+      let el: HTMLElement = de.nativeElement;
+
+      // Assert
+      expect(el.innerText).toContain("81");
+    });
+  });
 });
